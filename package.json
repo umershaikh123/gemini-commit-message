@@ -1,6 +1,7 @@
 {
   "name": "gemini-commit-generator-extension",
   "displayName": "Gemini Commit Message",
+  "icon": "logo.jpg",
   "publisher": "umershaikh123",
   "description": "Generates commit messages using Gemini.",
   "license": "MIT",
