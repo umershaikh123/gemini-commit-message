@@ -18,7 +18,7 @@
       {
         "command": "gemini-commit-generator.generateCommitMessage",
         "title": "Generate Commit Message",
-        "icon": "$(sparkle)"
+        "icon": "$(comment)"
       }
     ],
     "menus": {

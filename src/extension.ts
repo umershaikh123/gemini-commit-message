@@ -25,18 +25,25 @@ export function activate(context: vscode.ExtensionContext) {
 
     const disposable = vscode.commands.registerCommand(`${CONFIG_SECTION}.generateCommitMessage`, async () => {
         const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
-        const apiKey = config.get<string>('apiKey');
+        let apiKey = config.get<string>('apiKey');
         const model = config.get<string>('model');
 
         if (!apiKey) {
-            const openSettings = 'Open Settings';
-            vscode.window.showErrorMessage('Please set your Gemini API Key in the settings.', openSettings)
-                .then(selection => {
-                    if (selection === openSettings) {
-                        vscode.commands.executeCommand('workbench.action.openSettings', `${CONFIG_SECTION}.apiKey`);
-                    }
-                });
-            return;
+            const newApiKey = await vscode.window.showInputBox({
+                prompt: "Please enter your Gemini API Key to continue",
+                placeHolder: "Paste your API key here",
+                password: true,
+                ignoreFocusOut: true,
+            });
+
+            if (newApiKey) {
+                await config.update('apiKey', newApiKey, vscode.ConfigurationTarget.Global);
+                apiKey = newApiKey;
+                vscode.window.showInformationMessage("Gemini API Key saved successfully!");
+            } else {
+                vscode.window.showErrorMessage("A Gemini API Key is required to use this extension.");
+                return;
+            }
         }
 
         const api = gitExtension.exports.getAPI(1);
