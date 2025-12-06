@@ -1,0 +1,23 @@
+{
+    "name": "Generated AI Theme",
+    "type": "dark",
+    "colors": {
+        "activityBar.background": "#443619",
+        "activityBar.foreground": "#FFFFFF",
+        "sideBar.background": "#443619",
+        "sideBar.foreground": "#FFFFFF",
+        "editor.background": "#443619",
+        "editor.foreground": "#FFFFFF",
+        "editorGroupHeader.tabsBackground": "#443619",
+        "tab.inactiveBackground": "#443619",
+        "tab.activeBackground": "#FDF0D5",
+        "tab.activeForeground": "#443619",
+        "statusBar.background": "#FDF0D5",
+        "statusBar.foreground": "#443619",
+        "input.background": "#FFFFFF",
+        "list.hoverBackground": "#FFB80E",
+        "list.activeSelectionBackground": "#FDF0D5",
+        "button.background": "#FDF0D5",
+        "button.foreground": "#443619"
+    }
+}

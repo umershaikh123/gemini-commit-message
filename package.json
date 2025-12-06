@@ -1,64 +1,38 @@
 {
-  "name": "gemini-commit-generator-extension",
-  "displayName": "Gemini Commit Message",
-  "icon": "logo.jpg",
+  "name": "color-theme-generator",
+  "displayName": "AI Color Theme Generator",
   "publisher": "umershaikh123",
-  "description": "Generates commit messages using Gemini.",
+  "description": "Generate VS Code themes from color theory patterns.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/umershaikh123/gemini-commit-message"
   },
-  "version": "0.0.2",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Themes"
   ],
   "activationEvents": [
-    "onView:workbench.view.scm"
+    "onCommand:theme.generateFromColorTheory"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "gemini-commit-generator.generateCommitMessage",
-        "title": "Generate Commit Message",
-        "icon": "$(comment)"
+        "command": "theme.generateFromColorTheory",
+        "title": "Generate Theme from Color Theory"
       }
     ],
-    "menus": {
-      "scm/title": [
-        {
-          "command": "gemini-commit-generator.generateCommitMessage",
-          "when": "scmProvider == 'git'",
-          "group": "navigation"
-        }
-      ]
-    },
-    "configuration": {
-      "title": "Gemini Commit Generator",
-      "properties": {
-        "gemini-commit-generator.apiKey": {
-          "type": "string",
-          "description": "Your Gemini API Key.",
-          "format": "password"
-        },
-        "gemini-commit-generator.model": {
-          "type": "string",
-          "default": "gemini-2.5-flash-lite",
-          "description": "The Gemini model to use for generating commit messages.",
-          "enum": [
-            "gemini-2.5-flash",
-            "gemini-2.5-flash-lite",
-            "gemini-2.5-pro",
-            "gemini-2.0-flash",
-            "gemini-2.0-flash-lite"
-          ]
-        }
+    "themes": [
+      {
+        "label": "Generated AI Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/current-generated-theme.json"
       }
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -85,6 +59,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1"
+    "@types/color": "^3.0.6",
+    "color": "^4.2.3"
   }
 }
