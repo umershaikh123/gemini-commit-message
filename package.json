@@ -1,0 +1,83 @@
+{
+  "name": "gemini-commit-generator",
+  "displayName": "Gemini Commit Message",
+  "description": "Generates commit messages using Gemini.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:workbench.view.scm"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gemini-commit-generator.generateCommitMessage",
+        "title": "Generate Commit Message",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "gemini-commit-generator.generateCommitMessage",
+          "when": "scmProvider == 'git'",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Gemini Commit Generator",
+      "properties": {
+        "gemini-commit-generator.apiKey": {
+          "type": "string",
+          "description": "Your Gemini API Key.",
+          "format": "password"
+        },
+        "gemini-commit-generator.model": {
+          "type": "string",
+          "default": "gemini-2.5-flash-lite",
+          "description": "The Gemini model to use for generating commit messages.",
+          "enum": [
+            "gemini-2.5-flash",
+            "gemini-2.5-flash-lite",
+            "gemini-2.5-pro",
+            "gemini-2.0-flash",
+            "gemini-2.0-flash-lite"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.1",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}
