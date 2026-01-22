@@ -2,6 +2,22 @@
 
 Generate high-quality, conventional commit messages with the power of Google's Gemini models, directly within VS Code. This extension analyzes your staged changes and suggests a commit message that follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
+""
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=umershaikh123.gemini-commit-generator-extension">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/umershaikh123.gemini-commit-generator-extension?style=flat-square&label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Version">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=umershaikh123.gemini-commit-generator-extension">
+    <img src="https://img.shields.io/visual-studio-marketplace/i/umershaikh123.gemini-commit-generator-extension?style=flat-square&label=Installs&logo=visual-studio-code" alt="Installs">
+  </a>
+
+  <a href="https://github.com/umershaikh123/quick-paste">
+    <img src="https://img.shields.io/github/license/umershaikh123/quick-paste?style=flat-square" alt="License">
+  </a>
+</p>
+
+
+
 ## Features
 
 - **AI-Powered Commit Messages:** Uses Gemini to analyze your staged `git diff` and generate a relevant and concise commit message.
